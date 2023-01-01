@@ -1,4 +1,5 @@
 @startuml CleanArchitectureExplainedNotes
+
     !procedure $printNotes($isDataShow, $isLayerGroupsShow)
         note "Application **in**dependent\nbusiness rules" as N5
         $ENTITY-[dotted]right-N5
@@ -42,4 +43,5 @@
         !endif
 
     !endprocedure
+    
 @enduml

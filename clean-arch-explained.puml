@@ -13,23 +13,22 @@
 !$showLegend=true
 
 ''' Includes
-!$kRepositoryRowUrl="https://raw.githubusercontent.com/geronimus1/clean-arch-explained/main/"
+!$kRepositoryRowIncUrl="https://raw.githubusercontent.com/geronimus1/clean-arch-explained/main/inc/"
 
-!$macrosUrl=$kRepositoryRowUrl + "shared/macros.puml"
-!$styleUrl=$kRepositoryRowUrl + "style/style.puml"
+!$macrosUrl=$kRepositoryRowIncUrl + "shared/macros.puml"
+!$styleUrl=$kRepositoryRowIncUrl + "style/style.puml"
 
-!$enterpriseLayerUrl=$kRepositoryRowUrl + "layers/enterprise.puml"
-!$appplcationLayerUrl=$kRepositoryRowUrl + "layers/enterprise.puml"
-!$interfaceLayerUrl=$kRepositoryRowUrl + "layers/enterprise.puml"
-!$frameworksDriversLayerUrl=$kRepositoryRowUrl + "layers/enterprise.puml"
+!$enterpriseLayerUrl=$kRepositoryRowIncUrl + "layers/enterprise.puml"
+!$appplcationLayerUrl=$kRepositoryRowIncUrl + "layers/enterprise.puml"
+!$interfaceLayerUrl=$kRepositoryRowIncUrl + "layers/enterprise.puml"
+!$frameworksDriversLayerUrl=$kRepositoryRowIncUrl + "layers/enterprise.puml"
 
-!$objectOrientedConnections=$kRepositoryRowUrl + "connections/object-oriented.puml"
-!$objectDataConnections=$kRepositoryRowUrl + "connections/data.puml"
-!$controlFlowConnections=$kRepositoryRowUrl + "connections/control-flow.puml"
+!$objectOrientedConnections=$kRepositoryRowIncUrl + "connections/object-oriented.puml"
+!$dataConnections=$kRepositoryRowIncUrl + "connections/data.puml"
+!$controlFlowConnections=$kRepositoryRowIncUrl + "connections/control-flow.puml"
 
-!$notesUrl=$kRepositoryRowUrl + "additional/notes.puml"
-!$legendUrl=$kRepositoryRowUrl + "additional/legend.puml"
-
+!$notesUrl=$kRepositoryRowIncUrl + "additional/notes.puml"
+!$legendUrl=$kRepositoryRowIncUrl + "additional/legend.puml"
 
 
 !includeurl $macrosUrl
