@@ -14,7 +14,7 @@
 
 ''' Includes
 !$kRepositoryRowUrl="https://raw.githubusercontent.com/geronimus1/clean-arch-explained/main/"
-!$macrosUrl=$kRepositoryRowUrl + "style/style.puml"
+!$macrosUrl=$kRepositoryRowUrl + "shared/macros.puml"
 
 !includeurl $macrosUrl
 
