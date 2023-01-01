@@ -1,6 +1,8 @@
 @startuml CleanArchitectureExplinedByYuriGeronimus
 
-''' Configuration
+'/******************************************************************************/
+'/* DIAGRAM CONFIGURATION                                                      */
+'/******************************************************************************/
 !$showExternalApi=true
 !$showData=true
 
@@ -12,25 +14,30 @@
 !$showNotes=true
 !$showLegend=true
 
+'/******************************************************************************/
+'/* MACROS                                                                     */
+'/******************************************************************************/
+!$REPOSITORY_ROW_URL="https://raw.githubusercontent.com/geronimus1/clean-arch-explained/main"
 
-''' Includes
-!$kRepositoryRowUrl="https://raw.githubusercontent.com/geronimus1/clean-arch-explained/main"
-!$kRepositoryRowIncUrl=$kRepositoryRowUrl+"/inc"
+'/******************************************************************************/
+'/* INCLUDES                                                                   */
+'/******************************************************************************/
+!$repositoryRowIncUrl=$REPOSITORY_ROW_URL+"/inc"
 
-!$macrosUrl=$kRepositoryRowUrl + "/shared/macros.puml"
-!$styleUrl=$kRepositoryRowIncUrl + "/style/style.puml"
+!$macrosUrl=$REPOSITORY_ROW_URL + "/shared/macros.puml"
+!$styleUrl=$repositoryRowIncUrl + "/style/style.puml"
 
-!$enterpriseLayerUrl=$kRepositoryRowIncUrl + "/layers/enterprise.puml"
-!$appplcationLayerUrl=$kRepositoryRowIncUrl + "/layers/application.puml"
-!$interfaceLayerUrl=$kRepositoryRowIncUrl + "/layers/interface-adapters.puml"
-!$frameworksDriversLayerUrl=$kRepositoryRowIncUrl + "/layers/frameworks-drivers.puml"
+!$enterpriseLayerUrl=$repositoryRowIncUrl + "/layers/enterprise.puml"
+!$appplcationLayerUrl=$repositoryRowIncUrl + "/layers/application.puml"
+!$interfaceLayerUrl=$repositoryRowIncUrl + "/layers/interface-adapters.puml"
+!$frameworksDriversLayerUrl=$repositoryRowIncUrl + "/layers/frameworks-drivers.puml"
 
-!$objectOrientedConnections=$kRepositoryRowIncUrl + "/connections/object-oriented.puml"
-!$dataConnections=$kRepositoryRowIncUrl + "/connections/data.puml"
-!$controlFlowConnections=$kRepositoryRowIncUrl + "/connections/control-flow.puml"
+!$objectOrientedConnections=$repositoryRowIncUrl + "/connections/object-oriented.puml"
+!$dataConnections=$repositoryRowIncUrl + "/connections/data.puml"
+!$controlFlowConnections=$repositoryRowIncUrl + "/connections/control-flow.puml"
 
-!$notesUrl=$kRepositoryRowIncUrl + "/additional/notes.puml"
-!$legendUrl=$kRepositoryRowIncUrl + "/additional/legend.puml"
+!$notesUrl=$repositoryRowIncUrl + "/additional/notes.puml"
+!$legendUrl=$repositoryRowIncUrl + "/additional/legend.puml"
 
 !includeurl $macrosUrl
 
@@ -48,11 +55,12 @@
 !includeurl $notesUrl
 !includeurl $legendUrl
 
-''' Implementation
-
+'/******************************************************************************/
+'/* IMPLEMENTATION                                                             */
+'/******************************************************************************/
 $setStyles()
 
-title "Clean Architecture explained by Yuri Geronimus"
+title "Clean Architecture explained by Yuri Geronimus\n(https://www.linkedin.com/in/yurigeronimus/)"
 
 $printEnterpriseLayer($showData, $showInLayers)
 $printApplicationLayer($showExternalApi, $showData, $showInLayers)
