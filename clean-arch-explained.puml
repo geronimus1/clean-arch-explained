@@ -1,4 +1,4 @@
-@startuml CleanArchYuriGeronimus
+@startuml CleanArchitectureExplinedByYuriGeronimus
 
 ''' Configuration
 !$showExternalApi=true
@@ -14,52 +14,39 @@
 
 ''' Includes
 !$kRepositoryRowUrl="https://raw.githubusercontent.com/geronimus1/clean-arch-explained/main/"
+
 !$macrosUrl=$kRepositoryRowUrl + "shared/macros.puml"
+!$styleUrl=$kRepositoryRowUrl + "style/style.puml"
+
+!$enterpriseLayerUrl=$kRepositoryRowUrl + "layers/enterprise.puml"
+!$appplcationLayerUrl=$kRepositoryRowUrl + "layers/enterprise.puml"
+!$interfaceLayerUrl=$kRepositoryRowUrl + "layers/enterprise.puml"
+!$frameworksDriversLayerUrl=$kRepositoryRowUrl + "layers/enterprise.puml"
+
+!$objectOrientedConnections=$kRepositoryRowUrl + "connections/object-oriented.puml"
+!$controlFlowConnections=$kRepositoryRowUrl + "connections/control-flow.puml"
+
+!$notesUrl=$kRepositoryRowUrl + "additional/notes.puml"
+!$legendUrl=$kRepositoryRowUrl + "additional/legend.puml"
+
+
 
 !includeurl $macrosUrl
+!includeurl $styleUrl
+
+!includeurl $enterpriseLayerUrl
+!includeurl $appplcationLayerUrl
+!includeurl $interfaceLayerUrl
+!includeurl $frameworksDriversLayerUrl
+
+!includeurl $objectOrientedConnections
+!includeurl $controlFlowConnections
+
+!includeurl $notesUrl
+!includeurl $legendUrl
 
 ''' Implementation
-!procedure $setStyles()
-  hide stereotype
-  hide empty members 
-  skinparam classAttributeIconSize 0
 
-  skinparam class {
-    BackgroundColor White
-    BackgroundColor<<$NAME_ENT_LOGIC>> $COLOR_ENT
-    BackgroundColor<<$NAME_APP_LOGIC>> $COLOR_APP
-    BackgroundColor<<$NAME_INT_ADAPTERS>> $COLOR_INTERF
-    BackgroundColor<<$NAME_FRMWK_DRIVERS>> $COLOR_FRMWK
-  }
-
-  skinparam note {
-    BackgroundColor White
-  }
-
-  skinparam legend {
-    BackgroundColor White
-  }
-!endprocedure
-
-!procedure $printLegend()
-  package "Legend" <<Frame>> as Legend1{
-    class "<<Type of element>>\nDescription of element"
-    {
-      -privateMethodName(parameterType parameterName) : returnType
-      +publicMethodName(parameterType parameterName) : returnType
-      {abstract} +publicAbstractMethodName(parameterType parameterName) : returnType //abstract
-    }
-    
-    legend
-      |  **Color**  |  **Clear Architecture layer**  |
-      |<$COLOR_ENT>| $NAME_ENT_LOGIC |
-      |<$COLOR_APP>| $NAME_APP_LOGIC |
-      |<$COLOR_INTERF>| $NAME_INT_ADAPTERS |
-      |<$COLOR_FRMWK>| $NAME_FRMWK_DRIVERS |
-    endlegend
-  }
- 
-!endprocedure
 
 !procedure $printEnterpriseLayer($isDataShow, $isLayerGroupsShow)
   !if ($isLayerGroupsShow == true)

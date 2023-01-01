@@ -1,0 +1,23 @@
+@startuml CleanArchitectureExplained
+
+    !procedure $printLegend()
+    package "Legend" <<Frame>> as Legend1{
+        class "<<Type of element>>\nDescription of element"
+        {
+        -privateMethodName(parameterType parameterName) : returnType
+        +publicMethodName(parameterType parameterName) : returnType
+        {abstract} +publicAbstractMethodName(parameterType parameterName) : returnType //abstract
+        }
+        
+        legend
+        |  **Color**  |  **Clear Architecture layer**  |
+        |<$COLOR_ENT>| $NAME_ENT_LOGIC |
+        |<$COLOR_APP>| $NAME_APP_LOGIC |
+        |<$COLOR_INTERF>| $NAME_INT_ADAPTERS |
+        |<$COLOR_FRMWK>| $NAME_FRMWK_DRIVERS |
+        endlegend
+    }
+    
+    !endprocedure
+    
+@enduml

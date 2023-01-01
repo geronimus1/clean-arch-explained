@@ -1,0 +1,24 @@
+@startuml CleanArchitectureExplainedStyle
+
+  !procedure $setStyles()
+    hide stereotype
+    hide empty members 
+    skinparam classAttributeIconSize 0
+
+    skinparam class {
+      BackgroundColor White
+      BackgroundColor<<$NAME_ENT_LOGIC>> $COLOR_ENT
+      BackgroundColor<<$NAME_APP_LOGIC>> $COLOR_APP
+      BackgroundColor<<$NAME_INT_ADAPTERS>> $COLOR_INTERF
+      BackgroundColor<<$NAME_FRMWK_DRIVERS>> $COLOR_FRMWK
+    }
+
+    skinparam note {
+      BackgroundColor White
+    }
+
+    skinparam legend {
+      BackgroundColor White
+    }
+  !endprocedure
+@enduml
