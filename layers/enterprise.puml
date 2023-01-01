@@ -1,2 +1,30 @@
 @startuml CleanArchitectureExplainedEnterpriseLayer
+
+    !procedure $printEnterpriseLayer($isDataShow, $isLayerGroupsShow)
+        !if ($isLayerGroupsShow == true)
+            package $LAYER_ENT_LOGIC{
+        !endif
+
+        class $ENTITY<<$NAME_ENT_LOGIC>>
+        {
+            +handleApplicationIndependentBusinessRules(data based on $NAME_REQUEST_MODEL) : data for "$NAME_RESPONSE_MODEL" creation
+        }
+
+        interface $ENTITY_GATEWAY<<$NAME_ENT_LOGIC>>
+        {
+            {abstract} +storeEntity(Entity) //abstract
+            {abstract} +getEntity(data based on $NAME_REQUEST_MODEL) : Entity //abstract
+        }
+
+        !if ($isDataShow == true)
+            rectangle Optional as rectOptional1 #line.dashed{
+            class $DATA_ENTITY $TYPE_DATA<<$NAME_ENT_LOGIC>>
+            }
+        !endif
+
+        !if ($isLayerGroupsShow == true)
+            }
+        !endif
+    !endprocedure
+
 @enduml

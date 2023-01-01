@@ -1,0 +1,35 @@
+@startuml CleanArchitectureExplainedDataConnections
+    !procedure $printDataRelations($isExtApiShow)
+
+        $CONTROLLER..>$DATA_REQUEST_MODEL $STYLE_DATA_ARROW : send
+        $INPUT_PORT.up.>$DATA_REQUEST_MODEL $STYLE_DATA_ARROW : get
+        $INTERACTOR.up.>$DATA_REQUEST_MODEL $STYLE_DATA_ARROW : get
+
+        $PRESENTER..>$DATA_RESPONSE_MODEL $STYLE_DATA_ARROW : get
+        $OUTPUT_PORT.up.>$DATA_RESPONSE_MODEL $STYLE_DATA_ARROW : get
+        $INTERACTOR.down.>$DATA_RESPONSE_MODEL $STYLE_DATA_ARROW : send
+
+        $ENTITY_GATEWAY_IMPL .down.> $DATA_ENTITY $STYLE_DATA_ARROW : may send
+        $ENTITY "1" *.up. "0..*" $DATA_ENTITY $STYLE_DATA_ARROW : may contain in
+
+        $PRESENTER .down.> $DATA_VIEW_MODEL $STYLE_DATA_ARROW : send
+        $API_OUTPUT .up.> $DATA_VIEW_MODEL $STYLE_DATA_ARROW : get
+
+        $CONTROLLER .up.>$DATA_REQUEST $STYLE_DATA_ARROW : get
+        $API_INPUT .down.> $DATA_REQUEST $STYLE_DATA_ARROW : send
+
+        $ENTITY_GATEWAY_IMPL .up.> $DATA_FOR_ENTITY $STYLE_DATA_ARROW : get
+        $API_DATABASE ..> $DATA_FOR_ENTITY $STYLE_DATA_ARROW : send
+
+        $ENTITY_GATEWAY .up.> $DATA_ENTITY $STYLE_DATA_ARROW : may get
+
+        !if ($isExtApiShow == true)
+            $EXT_API.up.>$DATA_API_MODEL $STYLE_DATA_ARROW : get
+            $INTERACTOR.up.>$DATA_API_MODEL $STYLE_DATA_ARROW : get
+            $EXT_API_IMPL..>$DATA_API_MODEL $STYLE_DATA_ARROW : send
+            $EXT_API_IMPL .up.>$DATA_EXT_API_MODEL $STYLE_DATA_ARROW : get
+            $API_INPUT .down.> $DATA_EXT_API_MODEL $STYLE_DATA_ARROW : send
+        !endif
+        
+    !endprocedure
+@enduml

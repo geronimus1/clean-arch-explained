@@ -1,2 +1,32 @@
 @startuml CleanArchitectureExplainedInterfaceAdaptersLayer
+    !procedure $printInterfaceLayer($isExtApiShow, $isLayerGroupsShow)
+    !if ($isLayerGroupsShow == true)
+        package $LAYER_INT_ADAPTERS{
+    !endif
+    
+    class $PRESENTER<<$NAME_INT_ADAPTERS>>
+    {
+        +handleResponse($NAME_RESPONSE_MODEL data)
+    }
+    
+    !if ($isExtApiShow == true)
+        class $EXT_API_IMPL<<$NAME_INT_ADAPTERS>>
+        {
+        +handleBusinessLogic($NAME_REQUEST_MODEL data) : $NAME_API_MODEL
+        }
+    !endif
+
+    class $CONTROLLER<<$NAME_INT_ADAPTERS>>
+
+    class $ENTITY_GATEWAY_IMPL<<$NAME_INT_ADAPTERS>>
+    {
+        -getDataForEnityCreationIfNeeded() : Data in Entity
+        +storeEntity(Entity)
+        +getEntity(data based on $NAME_REQUEST_MODEL) : Entity
+    }
+    
+    !if ($isLayerGroupsShow == true)
+        }
+    !endif
+    !endprocedure
 @enduml

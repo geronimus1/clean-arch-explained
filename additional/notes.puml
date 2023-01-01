@@ -1,2 +1,45 @@
 @startuml CleanArchitectureExplainedNotes
+    !procedure $printNotes($isDataShow, $isLayerGroupsShow)
+        note "Application **in**dependent\nbusiness rules" as N5
+        $ENTITY-[dotted]right-N5
+
+        note "Application dependent\nbusiness rules" as N6
+        $INTERACTOR-[dotted]left-N6
+
+        !if ($isLayerGroupsShow == true)
+            $LAYER_ENT_LOGIC-[dotted]right-N5
+            $LAYER_APP_LOGIC-[dotted]left-N6
+            
+            note as N4
+            $LAYER_ENT_LOGIC layer
+            can be shared library because
+            it is application independent
+            end note
+
+            $LAYER_ENT_LOGIC-[dotted]-N4
+
+        !endif
+
+        note as N1
+            $NAME_ENT_LOGIC layer **should contain**
+            business logic: classes with **methods or functions**.
+            But **Data is optional**!
+        end note
+
+        $ENTITY-[dotted]up-N1
+        !if ($isDataShow == true)
+            rectOptional1-[dotted]up-N1
+        !endif
+
+        note as N2
+            ViewModel data - is the
+            **just data structure** for
+            Dumb View API
+        endnote
+        $API_OUTPUT-[dotted]-N2
+        !if ($showData == true)
+            $DATA_VIEW_MODEL-[dotted]-N2
+        !endif
+
+    !endprocedure
 @enduml

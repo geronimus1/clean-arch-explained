@@ -1,2 +1,28 @@
 @startuml CleanArchitectureExplainedObjectOrientedConnections
+    !procedure $printObjectOrientedRelations($isExtApiShow)
+
+    $API_INPUT ..> $CONTROLLER: call
+    $CONTROLLER..>$INPUT_PORT : call "execute()" method\nwith transfer data in $NAME_REQUEST_MODEL\n(call application dependent\nbusiness rules)
+    $INPUT_PORT <|..$INTERACTOR : realize
+    $INTERACTOR ..> $OUTPUT_PORT : call method for\nresponse event with\ntransfer data\nin ResponseModel
+    $OUTPUT_PORT <|..$PRESENTER: realize
+    
+    $PRESENTER ..>$API_OUTPUT : call
+    $INTERACTOR .right.> $ENTITY : call (application independent\nbusiness rules)
+    $INTERACTOR .up.> $ENTITY_GATEWAY : call
+
+    $ENTITY_GATEWAY_IMPL ..|> $ENTITY_GATEWAY : realize
+    $API_DATABASE <.. $ENTITY_GATEWAY_IMPL : call
+
+    $ENTITY_GATEWAY ..> $ENTITY : return
+
+    !if ($isExtApiShow == true)
+        $API_INPUT <.. $EXT_API_IMPL: call
+        $EXT_API_IMPL..|>$EXT_API : realize
+        $EXT_API <..$INTERACTOR : call
+
+        $EXT_API-[hidden]left->$INPUT_PORT
+    !endif
+    
+    !endprocedure
 @enduml

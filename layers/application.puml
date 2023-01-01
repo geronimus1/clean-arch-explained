@@ -1,2 +1,47 @@
 @startuml CleanArchitectureExplainedApplicationLayer
+
+    !procedure $printApplicationLayer($isExtApiShow, $isDataShow, $isLayerGroupsShow)
+        !if ($isLayerGroupsShow == true)
+            package $LAYER_APP_LOGIC{
+        !endif
+
+        interface $INPUT_PORT<<$NAME_APP_LOGIC>>
+        {
+            {abstract} +execute($NAME_REQUEST_MODEL data) : $NAME_RESPONSE_MODEL //abstract
+        }
+
+        class $INTERACTOR<<$NAME_APP_LOGIC>>
+        {
+            -callExternalApiIfNeeded($NAME_REQUEST_MODEL data) : $NAME_API_MODEL
+            -handleApplicationDependentBusinessRules(data based on $NAME_REQUEST_MODEL)
+            +execute($NAME_REQUEST_MODEL data) : $NAME_RESPONSE_MODEL 
+        }
+
+        interface $OUTPUT_PORT<<$NAME_APP_LOGIC>>
+        {
+            {abstract} +handleResponse($NAME_RESPONSE_MODEL data) //abstract
+        }
+        
+        !if ($isExtApiShow == true)
+            interface $EXT_API<<$NAME_APP_LOGIC>>
+            {
+            {abstract} +handleBusinessLogic($NAME_REQUEST_MODEL data) : $NAME_API_MODEL //abstract
+            }
+        !endif
+
+        !if ($isDataShow == true)
+            class $DATA_REQUEST_MODEL $TYPE_DATA <<$NAME_APP_LOGIC>>
+            class $DATA_RESPONSE_MODEL $TYPE_DATA <<$NAME_APP_LOGIC>>
+        !endif
+
+        !if ($isExtApiShow == true && $isDataShow == true)
+            class $DATA_API_MODEL $TYPE_DATA <<$NAME_APP_LOGIC>>
+        !endif
+
+
+        !if ($isLayerGroupsShow == true)
+            }
+        !endif
+    !endprocedure
+
 @enduml

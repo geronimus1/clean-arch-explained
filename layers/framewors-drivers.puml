@@ -1,2 +1,34 @@
 @startuml CleanArchitectureExplainedFrameworksDriversLayer
+    !procedure $printFrameworkLayer($isExtApiShow, $isDataShow, $isLayerGroupsShow)
+    !if ($isLayerGroupsShow == true)
+        package $LAYER_FRMWK_DRIVERS{
+    !endif
+
+    rectangle Optional as rectOptional2 #line.dashed{
+        class $API_DATABASE<<$NAME_FRMWK_DRIVERS>>
+        
+        !if ($isDataShow == true)
+            class $DATA_FOR_ENTITY $TYPE_DATA <<$NAME_FRMWK_DRIVERS>>
+        !endif
+    }
+
+    class $API_INPUT<<$NAME_FRMWK_DRIVERS>>
+    class $API_OUTPUT<<$NAME_FRMWK_DRIVERS>>
+    {
+        +callViewApi(ViewModel data)
+    }
+
+    !if ($showData == true)
+        class $DATA_VIEW_MODEL $TYPE_DATA <<$NAME_FRMWK_DRIVERS>>
+        class $DATA_REQUEST $TYPE_DATA <<$NAME_FRMWK_DRIVERS>>
+
+        !if ($isExtApiShow == true)
+        class $DATA_EXT_API_MODEL $TYPE_DATA <<$NAME_FRMWK_DRIVERS>>
+        !endif
+    !endif
+
+    !if ($isLayerGroupsShow == true)
+        }
+    !endif
+    !endprocedure
 @enduml
