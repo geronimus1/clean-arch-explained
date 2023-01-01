@@ -17,7 +17,15 @@
 '/******************************************************************************/
 '/* MACROS                                                                     */
 '/******************************************************************************/
+!$isPublished=true
+
+!$INCLUDE_FILE="!includeurl"
 !$REPOSITORY_ROW_URL="https://raw.githubusercontent.com/geronimus1/clean-arch-explained/main"
+
+!if (false == $isPublished)
+  !$REPOSITORY_ROW_URL="/Users/urijgeronimus/Documents/GitHub/clean-arch-explained/"
+  !$INCLUDE_FILE="!include"
+!endif
 
 '/******************************************************************************/
 '/* INCLUDES                                                                   */
@@ -39,21 +47,21 @@
 !$notesUrl=$repositoryRowIncUrl + "/additional/notes.puml"
 !$legendUrl=$repositoryRowIncUrl + "/additional/legend.puml"
 
-!includeurl $macrosUrl
+$INCLUDE_FILE $macrosUrl
 
-!includeurl $styleUrl
+$INCLUDE_FILE $styleUrl
 
-!includeurl $enterpriseLayerUrl
-!includeurl $appplcationLayerUrl
-!includeurl $interfaceLayerUrl
-!includeurl $frameworksDriversLayerUrl
+$INCLUDE_FILE $enterpriseLayerUrl
+$INCLUDE_FILE $appplcationLayerUrl
+$INCLUDE_FILE $interfaceLayerUrl
+$INCLUDE_FILE $frameworksDriversLayerUrl
 
-!includeurl $objectOrientedConnections
-!includeurl $dataConnections
-!includeurl $controlFlowConnections
+$INCLUDE_FILE $objectOrientedConnections
+$INCLUDE_FILE $dataConnections
+$INCLUDE_FILE $controlFlowConnections
 
-!includeurl $notesUrl
-!includeurl $legendUrl
+$INCLUDE_FILE $notesUrl
+$INCLUDE_FILE $legendUrl
 
 '/******************************************************************************/
 '/* IMPLEMENTATION                                                             */
