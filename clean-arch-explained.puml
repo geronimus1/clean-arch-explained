@@ -12,8 +12,13 @@
 !$showNotes=true
 !$showLegend=true
 
-!include "/style/style.puml"
+''' Includes
+!$kRepositoryRowUrl="https://raw.githubusercontent.com/geronimus1/clean-arch-explained/main/"
+!$macrosUrl=$kRepositoryRowUrl + "style/style.puml"
 
+!includeurl $macrosUrl
+
+''' Implementation
 !procedure $setStyles()
   hide stereotype
   hide empty members 
