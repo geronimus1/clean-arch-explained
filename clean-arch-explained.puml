@@ -12,7 +12,7 @@
 !$showNotes=true
 !$showLegend=true
 
-!!include "/style/style.puml"
+!include "/style/style.puml"
 
 !procedure $setStyles()
   hide stereotype
