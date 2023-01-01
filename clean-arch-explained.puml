@@ -13,22 +13,24 @@
 !$showLegend=true
 
 ''' Includes
-!$kRepositoryRowIncUrl="https://raw.githubusercontent.com/geronimus1/clean-arch-explained/main/inc/"
+!$kRepositoryRowUrl="https://raw.githubusercontent.com/geronimus1/clean-arch-explained/main"
+!$kRepositoryRowIncUrl=$kRepositoryRowUrl+"inc/"
 
-!$macrosUrl=$kRepositoryRowIncUrl + "shared/macros.puml"
-!$styleUrl=$kRepositoryRowIncUrl + "style/style.puml"
+!$macrosUrl=$kRepositoryRowUrl + "/shared/macros.puml"
 
-!$enterpriseLayerUrl=$kRepositoryRowIncUrl + "layers/enterprise.puml"
-!$appplcationLayerUrl=$kRepositoryRowIncUrl + "layers/enterprise.puml"
-!$interfaceLayerUrl=$kRepositoryRowIncUrl + "layers/enterprise.puml"
-!$frameworksDriversLayerUrl=$kRepositoryRowIncUrl + "layers/enterprise.puml"
+!$styleUrl=$kRepositoryRowIncUrl + "/style/style.puml"
 
-!$objectOrientedConnections=$kRepositoryRowIncUrl + "connections/object-oriented.puml"
-!$dataConnections=$kRepositoryRowIncUrl + "connections/data.puml"
-!$controlFlowConnections=$kRepositoryRowIncUrl + "connections/control-flow.puml"
+!$enterpriseLayerUrl=$kRepositoryRowIncUrl + "/layers/enterprise.puml"
+!$appplcationLayerUrl=$kRepositoryRowIncUrl + "/layers/application.puml"
+!$interfaceLayerUrl=$kRepositoryRowIncUrl + "/layers/enterprise.puml"
+!$frameworksDriversLayerUrl=$kRepositoryRowIncUrl + "/layers/enterprise.puml"
 
-!$notesUrl=$kRepositoryRowIncUrl + "additional/notes.puml"
-!$legendUrl=$kRepositoryRowIncUrl + "additional/legend.puml"
+!$objectOrientedConnections=$kRepositoryRowIncUrl + "/connections/object-oriented.puml"
+!$dataConnections=$kRepositoryRowIncUrl + "/connections/data.puml"
+!$controlFlowConnections=$kRepositoryRowIncUrl + "/connections/control-flow.puml"
+
+!$notesUrl=$kRepositoryRowIncUrl + "/additional/notes.puml"
+!$legendUrl=$kRepositoryRowIncUrl + "/additional/legend.puml"
 
 
 !includeurl $macrosUrl
